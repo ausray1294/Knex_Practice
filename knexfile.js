@@ -1,5 +1,13 @@
-module.exports = {
+require('dotenv').config()
+// Use dot notation - remember how process.env looked like an object?
+const connectionString = process.env.DB_CONNECTION_STRING;
 
+module.exports = {
+  development: {
+    client: "pg",
+    connection: connectionString,
+
+  /*
   development: {
     client: 'pg',
     connection: {
@@ -9,6 +17,7 @@ module.exports = {
       port: 5432,
       database: 'pet_store'
     }
+      */
     // replace USER_NAME, USER_PASSWORD, and DATABASE_NAME with your Docker PostgreSQL container's username, password and an *empty* database
     // that you have created on your Docker PostgreSQL container volume
   },
